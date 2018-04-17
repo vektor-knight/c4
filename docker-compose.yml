@@ -1,0 +1,14 @@
+version: '3.6'
+
+services:
+  database:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: kraken
+    volumes:
+      - ./docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d/
+    command: --disable-partition-engine-check
+
+  engine:
+    image: node
