@@ -3,3 +3,8 @@ version: "3.6"
 services:
   b:
     build: ~/b/b0
+
+  engine:
+    image: node
+    depends_on:
+      - b

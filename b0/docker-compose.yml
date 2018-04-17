@@ -5,8 +5,5 @@ services:
     image: mysql
     volumes:
       - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
-    depends_on:
-      - engine
-
-  engine:
-    image: node
+    environment:
+      MYSQL_ROOT_PASSWORD: root
