@@ -1,0 +1,16 @@
+version: '3.6'
+
+services:
+  engine:
+    image: node
+
+# Extensions removed in v3.x
+# The image will be contained in its own instance
+# Separation of concerns self-described in this file
+  database:
+    image: mysql      
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: kraken
+    volumes:
+      - ./docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d/
